@@ -62,3 +62,6 @@ gem 'pry-rails'
 gem 'kaminari'
 gem 'annotate'
 gem "jquery-rails"
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
