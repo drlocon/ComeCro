@@ -5,6 +5,9 @@
       <!--ユーザー側-->
       <% if user_signed_in? %>
         <li>
+          <%= link_to "新規投稿", new_like_path %>
+        </li>
+        <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
       <!--管理者側-->
