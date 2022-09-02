@@ -19,6 +19,7 @@ class Public::LikesController < ApplicationController
   end
 
   def show
+    @like = Like.find(params[:id])
   end
 
   def edit

@@ -1,9 +1,12 @@
 <h1>投稿一覧</h1>
 <% @likes.each do |like| %>
+  <%= link_to like_path(like.id) do %>
+    <span><%= image_tag like.like_image, size: '50x50' %></span>
+  <% end %>
+  <p>ユーザー名</p>
+  <span><%= like.user.name %></span>
   <p>タイトル</p>
   <span><%= like.title %></span>
   <p>内容</p>
   <span><%= like.content %></span>
-  <p>画像</p>
-  <span><%= image_tag like.like_image, size: '50x50' %></span>
 <% end %>

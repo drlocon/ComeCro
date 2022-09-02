@@ -1,2 +1,9 @@
-<h1>Public::Likes#show</h1>
-<p>Find me in app/views/public/likes/show.html.erb</p>
+<h1>投稿詳細画面</h1>
+  <p>ユーザー名</p>
+  <span><%= @like.user.name %></span>
+  <p>タイトル</p>
+  <span><%= @like.title %></span>
+  <p>内容</p>
+  <span><%= @like.content %></span>
+  <p>画像</p>
+  <span><%= image_tag @like.like_image, size: '50x50' %></span>
