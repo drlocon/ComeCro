@@ -1,9 +1,14 @@
 <h1>投稿詳細画面</h1>
-  <p>ユーザー名</p>
-  <span><%= @like.user.name %></span>
-  <p>タイトル</p>
-  <span><%= @like.title %></span>
-  <p>内容</p>
-  <span><%= @like.content %></span>
-  <p>画像</p>
-  <span><%= image_tag @like.like_image, size: '50x50' %></span>
+<p>ユーザー名</p>
+<span><%= @like.user.name %></span>
+<p>タイトル</p>
+<span><%= @like.title %></span>
+<p>内容</p>
+<span><%= @like.content %></span>
+<p>画像</p>
+<span><%= image_tag @like.like_image, size: '50x50' %></span>
+  
+<% if @like.user == current_user %>
+  <%= link_to '編集', edit_like_path(@like) %>
+  <%= link_to '削除', @like, method: :delete, data: { confirm: '本当に消しますか？' } %>
+<% end %>

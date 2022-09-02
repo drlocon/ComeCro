@@ -23,11 +23,21 @@ class Public::LikesController < ApplicationController
   end
 
   def edit
+    @like = Like.find(params[:id])
+  end
+  
+  def update
+    @like = Like.find(params[:id])
+    if @like.update(like_params)
+      redirect_to like_path(params[:id])
+    else
+      render :edit
+    end
   end
   
   private
   
   def like_params
-    params.require(:like).permit(:title, :contentm, :like_image)
+    params.require(:like).permit(:title, :content, :like_image)
   end
 end
