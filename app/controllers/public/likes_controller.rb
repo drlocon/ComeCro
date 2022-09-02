@@ -7,7 +7,7 @@ class Public::LikesController < ApplicationController
     @like_new = Like.new(like_params)
     @like_new.user_id = current_user.id
     if @like_new.save
-      redirect_to like_path
+      redirect_to likes_path
     else
       @like_new = Like.new
       render :new

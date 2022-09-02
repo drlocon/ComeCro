@@ -2,4 +2,8 @@
 <% @likes.each do |like| %>
   <p>タイトル</p>
   <span><%= like.title %></span>
+  <p>内容</p>
+  <span><%= like.content %></span>
+  <p>画像</p>
+  <span><%= image_tag like.like_image, size: '50x50' %></span>
 <% end %>
