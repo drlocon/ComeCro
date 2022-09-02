@@ -11,4 +11,14 @@
 #  user_id    :integer          not null
 #
 class Like < ApplicationRecord
+  belongs_to :user
+  
+  has_one_attached :like_image
+  
+  def get_like_image
+    unless like_image.attached?
+      file_path = Rails.root.join('app/assets/images/noimage.jpg')
+      like_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+  end
 end
