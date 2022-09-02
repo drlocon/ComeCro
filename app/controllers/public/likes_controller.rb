@@ -35,6 +35,12 @@ class Public::LikesController < ApplicationController
     end
   end
   
+  def destroy
+    @like = Like.find(params[:id])
+    @like.destroy
+    redirect_to likes_path
+  end
+  
   private
   
   def like_params
