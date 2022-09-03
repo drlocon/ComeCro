@@ -8,4 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Tag < ApplicationRecord
+  has_many :like_tags, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end

@@ -9,4 +9,6 @@
 #  tag_id     :integer          not null
 #
 class LikeTag < ApplicationRecord
+  belongs_to :like
+  belongs_to :tag
 end

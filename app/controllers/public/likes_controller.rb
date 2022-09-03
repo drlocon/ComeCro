@@ -1,4 +1,6 @@
 class Public::LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @like_new = Like.new
   end
@@ -6,7 +8,9 @@ class Public::LikesController < ApplicationController
   def create
     @like_new = Like.new(like_params)
     @like_new.user_id = current_user.id
+    tag_list = params[:like][:tag_name].split(",")
     if @like_new.save
+      @like_new.save_tags(tag_list)
       redirect_to likes_path
     else
       @like_new = Like.new
