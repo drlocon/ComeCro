@@ -13,6 +13,9 @@
 <span><%= @like.content %></span>
 <p>画像</p>
 <span><%= image_tag @like.like_image, size: '50x50' %></span>
+<div class=<%= "favorite-" + @like.id.to_s %>>
+  <%= render 'public/favorites/btn', document: @like %>
+</div>
   
 <% if @like.user == current_user %>
   <%= link_to '編集', edit_like_path(@like) %>
