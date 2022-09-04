@@ -15,6 +15,7 @@ class Like < ApplicationRecord
   
   has_many :like_tags, dependent: :destroy
   has_many :tags, through: :like_tags
+  has_many :favorites, dependent: :destroy
   
   has_one_attached :like_image
   
@@ -38,5 +39,10 @@ class Like < ApplicationRecord
       like_tag = Tag.find_or_create_by(name: new_name)
       tags << like_tag
     end
+  end
+  
+  # お気に入り機能の設定
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
   end
 end

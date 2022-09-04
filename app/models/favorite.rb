@@ -9,4 +9,6 @@
 #  user_id    :integer          not null
 #
 class Favorite < ApplicationRecord
+  belongs_to :user
+  belongs_to :like
 end
