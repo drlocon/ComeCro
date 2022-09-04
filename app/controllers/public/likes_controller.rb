@@ -32,7 +32,9 @@ class Public::LikesController < ApplicationController
   
   def update
     @like = Like.find(params[:id])
+    tag_list = params[:like][:tag_name].split(",")
     if @like.update(like_params)
+      @like.save_tags(tag_list)
       redirect_to like_path(params[:id])
     else
       render :edit

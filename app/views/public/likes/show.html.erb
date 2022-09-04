@@ -3,6 +3,12 @@
 <span><%= @like.user.name %></span>
 <p>タイトル</p>
 <span><%= @like.title %></span>
+<p>タグ</p>
+  <span>
+    <% @like.tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
+  </span>
 <p>内容</p>
 <span><%= @like.content %></span>
 <p>画像</p>
