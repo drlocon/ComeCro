@@ -1,8 +1,8 @@
 <h1>マイページ機能</h1>
+<%= image_tag @user.profile_image, size: '50x50' %>
 <p>ユーザー名：<%= @user.name %></p>
 <p>プロフィール：<%= @user.profile %></p>
-<p>編集</p>
-<p>退会</p>
+<%= link_to '編集', edit_user_path(@user) %>
 
 <h1>自分の投稿一覧</h1>
 <% @likes.each do |like| %>
