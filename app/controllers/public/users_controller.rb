@@ -3,8 +3,8 @@ class Public::UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @likes = current_user.likes
+    @user = User.find(params[:id])
+    @likes = @user.likes
   end
 
   def edit
