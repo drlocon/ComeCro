@@ -2,7 +2,18 @@
 <%= image_tag @user.profile_image, size: '50x50' %>
 <p>ユーザー名：<%= @user.name %></p>
 <p>プロフィール：<%= @user.profile %></p>
-<%= link_to '編集', edit_user_path(@user) %>
+<!--フォロー-->
+<% if @user == current_user %>
+  <%= link_to edit_user_path(@user) do %>
+    <i class="fas fa-user-cog"></i>編集
+  <% end %>
+<% else %>
+  <% if current_user.following?(@user) %>
+    <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete %>
+  <% else %>
+    <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+  <% end %>
+<% end %>
 
 <h1>自分の投稿一覧</h1>
 <% @likes.each do |like| %>
