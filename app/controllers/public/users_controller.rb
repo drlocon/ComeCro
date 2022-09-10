@@ -20,6 +20,16 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  def confirm
+  end
+  
+  def withdrawal
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+  
   private
   
   def user_params
