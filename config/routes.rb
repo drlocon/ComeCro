@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
   	  get 'followers' => 'relationships#followers', as: 'followers'
-      get "confim" => "users#confim"
+      get "confirm" => "users#confirm"
       patch "withdrawal" => "users#withdrawal"
       get "favorites" => "users#favorites"
     end
