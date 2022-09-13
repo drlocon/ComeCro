@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     end
     
     resources :chats, only: [:show, :create]
+    get 'chats/show'
     
     resources :groups, only: [:new, :index, :show, :create, :edit, :update] do
       resource :group_users, only: [:create, :destroy]

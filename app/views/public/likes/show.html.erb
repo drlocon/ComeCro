@@ -1,6 +1,8 @@
 <h1>投稿詳細画面</h1>
 <p>ユーザー名</p>
-<span><%= @like.user.name %></span>
+<%= link_to(@like.user) do %>
+  <%= @like.user.name %>
+<% end %>
 <p>タイトル</p>
 <span><%= @like.title %></span>
 <p>タグ</p>
@@ -14,9 +16,9 @@
 <p>画像</p>
 <span><%= image_tag @like.like_image, size: '50x50' %></span>
 <div class=<%= "favorite-" + @like.id.to_s %>>
-  <%= render 'public/favorites/btn', document: @like %>
+  <%= render 'public/favorites/btn', like: @like %>
 </div>
-  
+
 <% if @like.user == current_user %>
   <%= link_to '編集', edit_like_path(@like) %>
   <%= link_to '削除', @like, method: :delete, data: { confirm: '本当に消しますか？' } %>
