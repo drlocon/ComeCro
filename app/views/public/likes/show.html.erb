@@ -1,6 +1,8 @@
 <h1>投稿詳細画面</h1>
 <p>ユーザー名</p>
-<span><%= @like.user.name %></span>
+<%= link_to(@like.user) do %>
+  <%= @like.user.name %>
+<% end %>
 <p>タイトル</p>
 <span><%= @like.title %></span>
 <p>タグ</p>
