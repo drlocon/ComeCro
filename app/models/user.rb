@@ -60,4 +60,9 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
+
+  # 退会機能の設定
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 end
