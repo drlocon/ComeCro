@@ -20,7 +20,7 @@ class Public::ChatsController < ApplicationController
   
   def create
     @chat = current_user.chats.new(chat_params)
-    render :validater unless @chat.save
+    @chat.save
   end
 
   private
