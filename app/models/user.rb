@@ -56,6 +56,11 @@ class User < ApplicationRecord
     followings.include?(user)
   end
   
+  # 退会機能の設定
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+  
   # DM機能
   has_many :rooms, through: :user_rooms
   has_many :user_rooms, dependent: :destroy
