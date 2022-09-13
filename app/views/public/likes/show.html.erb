@@ -14,9 +14,9 @@
 <p>画像</p>
 <span><%= image_tag @like.like_image, size: '50x50' %></span>
 <div class=<%= "favorite-" + @like.id.to_s %>>
-  <%= render 'public/favorites/btn', document: @like %>
+  <%= render 'public/favorites/btn', like: @like %>
 </div>
-  
+
 <% if @like.user == current_user %>
   <%= link_to '編集', edit_like_path(@like) %>
   <%= link_to '削除', @like, method: :delete, data: { confirm: '本当に消しますか？' } %>

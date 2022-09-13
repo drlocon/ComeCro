@@ -7,4 +7,6 @@
 #  updated_at :datetime         not null
 #
 class Room < ApplicationRecord
+  has_many :chats
+  has_many :user_rooms
 end

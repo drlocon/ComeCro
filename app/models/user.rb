@@ -55,4 +55,9 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+  
+  # DM機能
+  has_many :rooms, through: :user_rooms
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 end

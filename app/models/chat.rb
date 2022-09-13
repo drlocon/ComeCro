@@ -10,4 +10,6 @@
 #  user_id    :integer          not null
 #
 class Chat < ApplicationRecord
+  belongs_to :user
+  belongs_to :room
 end
