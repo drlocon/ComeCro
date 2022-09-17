@@ -20,7 +20,7 @@ class Public::ChatsController < ApplicationController
   
   def create
     @chat = current_user.chats.new(chat_params)
-    render :validater unless @chat.save
+    @chat.save
   end
 
   private
@@ -32,7 +32,7 @@ class Public::ChatsController < ApplicationController
   def reject_non_related
     user = User.find(params[:id])
     unless current_user.following?(user) && user.following?(current_user)
-      redirect_to books_path
+      redirect_to likes_path
     end
   end
 end

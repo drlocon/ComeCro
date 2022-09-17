@@ -33,6 +33,10 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   
+  has_many :rooms, through: :user_rooms
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+  
   has_one_attached :profile_image
 
   # 画像の設定
@@ -60,7 +64,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
-
+  
   # 退会機能の設定
   def active_for_authentication?
     super && (is_deleted == false)
